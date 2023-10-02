@@ -3,16 +3,14 @@ package src.main.java.homework;
 public class starsInARow {
 
     public static void main(String[] args) {
-
         int numRows = 8;
-        int numColumns = 15;
+        int numStarsPerRow = 15;
 
-        for ( int a = 0; a < numRows; a++){
-            for (int b = 0; b < numColumns; b++){
-                System.out.println("* ");
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j < numStarsPerRow; j++) {
+                System.out.print("*");
             }
-            System.out.println();
+            System.out.println(); // Move to the next row
         }
-
     }
 }
