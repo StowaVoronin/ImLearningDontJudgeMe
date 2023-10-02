@@ -10,7 +10,7 @@ public class starsInARow {
             for (int j = 0; j < numStarsPerRow; j++) {
                 System.out.print("*");
             }
-            System.out.println(); // Move to the next row
+            System.out.println();
         }
     }
 }
