@@ -13,7 +13,7 @@ public Truck() {
 }
 
 public void  loadUp(int amount) {
-    System.out.println("uck has been loaded by " + amount);
+    System.out.println("Truck has been loaded by " + amount);
     this.maxLoad = this.maxLoad + amount;
 }
 

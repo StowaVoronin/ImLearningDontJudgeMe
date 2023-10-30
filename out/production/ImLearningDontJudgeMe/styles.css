@@ -1,0 +1,21 @@
+		body{
+			background-image: url(https://img.freepik.com/premium-photo/old-brown-paper-grunge-abstract-frame-liquid-coffee-color-texture_51524-10155.jpg?w=2000);	
+		}		
+		table,tr,td {
+		
+			
+		border:3px solid black;
+		border-collapse: collapse;
+		background-color: #d6a056 
+		}
+
+    		.small-image {
+      		  width: 200px;
+      		  height: 200px;
+   		 }
+		.custom-font {
+   		 font-family: "Georgia", sans-serif;
+   		 font-size: 18px;
+   		 font-weight: normal;
+  		 color: black;
+		}

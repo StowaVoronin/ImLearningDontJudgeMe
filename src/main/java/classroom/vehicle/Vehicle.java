@@ -12,7 +12,7 @@ public class Vehicle {
         }
 
     public String getDriverInfo() {
-        return "This vehice driver is " + this.driver;
+        return "This vehicle driver is " + this.driver;
     }
 
     }
