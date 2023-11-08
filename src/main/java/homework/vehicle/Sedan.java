@@ -1,8 +1,10 @@
-package src.main.java.homework.vehicle;
+package homework.vehicle;
 
 public class Sedan extends Car{
+    int seats;
 
-    public Sedan(int passengers, String licensePlate) {
-        super(passengers, licensePlate);
+    public Sedan() {
+        super();
+        seats = 5;
     }
 }

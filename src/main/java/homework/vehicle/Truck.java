@@ -1,15 +1,15 @@
-package src.main.java.homework.vehicle;
+package homework.vehicle;
 
 public class Truck extends Car{
-    private int loadCapacity;
+    int maxLoad;
 
-    public Truck(int passengers, String licensePlate, int loadCapacity) {
-        super(passengers, licensePlate);
-        this.loadCapacity = loadCapacity;
+    public Truck() {
+        super();
+        maxLoad = 0;
     }
-
-    public int getLoadCapacity() {
-        return loadCapacity;
+    public void loadUp(int amount) {
+        System.out.println("Truck has been loaded by " + amount);
+        this.maxLoad = this.maxLoad + amount;
     }
 
 }

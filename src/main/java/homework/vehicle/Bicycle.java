@@ -1,14 +1,20 @@
-package src.main.java.homework.vehicle;
+package homework.vehicle;
 
 public class Bicycle extends Vehicle{
+    boolean isFoldable;
+    int gearCount;
 
-    private boolean foldable;
-
-    public Bicycle(boolean foldable) {
-        this.foldable = foldable;
+    public Bicycle() {
+        super();
+        this.isFoldable = true;
+        this.gearCount = 1;
     }
+    public boolean fold() {
+        if (this.isFoldable) return false;
+        else {
+                this.isFoldable = true;
+                return true;
 
-    public boolean isFoldable() {
-        return foldable;
+        }
     }
 }

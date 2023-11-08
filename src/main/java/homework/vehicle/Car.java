@@ -1,19 +1,14 @@
-package src.main.java.homework.vehicle;
+package homework.vehicle;
 
-public class Car extends Vehicle{
-    private int passengers;
-    private String licensePlate;
+public class Car extends Vehicle {
+    String licensePlate;
 
-    public Car(int passengers, String licensePlate) {
-        this.passengers = passengers;
-        this.licensePlate = licensePlate;
+    public Car() {
+        super();
+        licensePlate = "";
     }
 
-    public String getPassengersInfo() {
-        return "License Plate: " + licensePlate + ", Passengers: " +  passengers;
+    public void wash() {
+        System.out.println("This car has been washed. Number plate: " + licensePlate);
     }
 }
-
-
-
-

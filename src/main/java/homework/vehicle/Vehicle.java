@@ -1,27 +1,18 @@
-package src.main.java.homework.vehicle;
+package homework.vehicle;
 
 public class Vehicle {
+    String brand;
+    String color;
     String driver;
+    public Vehicle(){
+        this.brand = "";
+        this.color = "";
+        this.driver = "";
+    }
     public String getDriverInfo() {
-        return driver;
+        return "This vehicle's driver is " + this.driver;
     }
-    public Vehicle(String driver) {
-        this.driver = driver;
+    public String endInfo(){
+        return  "_____________________________________";
     }
-
-    public boolean washed;
-
-    public Vehicle() {
-        washed = false;
-    }
-
-    public void wash() {
-        washed = true;
-    }
-
-    public boolean isClean() {
-        return washed;
-    }
-
 }
-
