@@ -9,7 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.List;
 
 public class LightAutoList {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         WebDriverManager.firefoxdriver().setup();
         WebDriver driver = new FirefoxDriver();
         driver.get("https://www.ss.com/lv/");
@@ -22,11 +22,13 @@ public class LightAutoList {
 
 
         System.out.println("The options are ");
-        for (WebElement webElements : titleElements) {
-           // System.out.println(titleElements.getText());
+        for (WebElement element : titleElements) {
+           System.out.println(element.getText());
         }
 
-        // Close the WebDriver
+
+        Thread.sleep(1000);
+
         driver.quit();
     }
 }
