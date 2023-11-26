@@ -2,7 +2,7 @@
 <suite name='All test suite'>
     <test name="Whole test">
         <packages>
-            <package name="teacher.homework"/>
+            <package  name="teacher.homework.testNG" />
         </packages>
     </test>
     <listeners>
