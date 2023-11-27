@@ -6,6 +6,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class PriceComparisonTest extends BaseTest {
 
     @Test
@@ -21,40 +23,28 @@ public class PriceComparisonTest extends BaseTest {
 
         Actions action = new Actions(driver);
 
-        WebElement inventoryPriceElement = driver.findElement(By.xpath("//button[@id='add-to-cart-sauce-labs-backpack']/ancestor::div[@id='inventory_container']//div[@class='inventory_item_price']"));
-        String inventoryPrice = inventoryPriceElement.getText().trim();
-        System.out.println("The initial price of the first product is " + inventoryPrice);
+
 
         WebElement addToCart = driver.findElement(By.xpath("//button[@id='add-to-cart-sauce-labs-backpack']"));
         addToCart.click();
 
-        WebElement inventoryPriceElement2 = driver.findElement(By.xpath("//button[@id='add-to-cart-sauce-labs-bike-light']/ancestor::div[@id='inventory_container']//div[@class='inventory_item_price']"));
-        String inventoryPrice2 = inventoryPriceElement2.getText().trim();
-        System.out.println("The initial price of the second product is " + inventoryPrice2);
-
         WebElement addToCart2 = driver.findElement(By.xpath("//button[@id='add-to-cart-sauce-labs-bike-light']"));
         addToCart2.click();
 
+        List<WebElement> allPricesProductList = driver.findElements(By.className("inventory_item_price"));
+        double priceProduct1 = Double.parseDouble(allPricesProductList.get(0).getText().substring(1));
+        double priceProduct2 = Double.parseDouble(allPricesProductList.get(1).getText().substring(1));
+        
         WebElement goToCart = driver.findElement(By.xpath("//a[@class='shopping_cart_link']"));
         goToCart.click();
 
-        WebElement cartPriceElement = driver.findElement(By.xpath("//button[@id='remove-sauce-labs-backpack']/ancestor::div[@class='cart_item']//div[@class='inventory_item_price']"));
-        String cartPrice = cartPriceElement.getText().trim();
-
-        System.out.println("The actual price of the first product is " + cartPrice);
-
-        Assert.assertEquals(cartPrice, inventoryPrice, "Prices do not match.");
-
-        WebElement cartPriceElement2 = driver.findElement(By.xpath("//button[@id='remove-sauce-labs-bike-light']/ancestor::div[@class='cart_item']//div[@class='inventory_item_price']"));
-        String cartPrice2 = cartPriceElement2.getText().trim();
-
-        System.out.println("The actual price of the second product is " + cartPrice2);
-
-        double cartPriceValue = Double.parseDouble(cartPrice.replace("$", ""));
-        double cartPrice2Value = Double.parseDouble(cartPrice2.replace("$", ""));
-        double expectedTotalAmount = cartPriceValue + cartPrice2Value;
-
-        //Assert.assertEquals(cartPrice2, inventoryPrice2, "Prices do not match.");
+        List<WebElement> allPricesInCartList = driver.findElements(By.className("inventory_item_price"));
+        double priceProductInCart1 = Double.parseDouble(allPricesInCartList.get(0).getText().substring(1));
+        double priceProductInCart2 = Double.parseDouble(allPricesInCartList.get(1).getText().substring(1));
+        
+        Assert.assertEquals(priceProductInCart1, priceProduct1);
+        Assert.assertEquals(priceProductInCart2, priceProduct2);
+        
 
         WebElement checkoutButton = driver.findElement(By.id("checkout"));
         checkoutButton.click();
@@ -73,6 +63,8 @@ public class PriceComparisonTest extends BaseTest {
         String totalAmountString = totalAmountElement.getText().trim().replace("Total: $", "");
         double totalAmount = Double.parseDouble(totalAmountString);
 
+        double expectedTotalAmount = priceProductInCart1 + priceProductInCart2;
         Assert.assertEquals(totalAmount, expectedTotalAmount, "Total amounts do not match.");
+
     }
 }
