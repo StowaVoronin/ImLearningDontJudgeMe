@@ -38,8 +38,8 @@ public class JanisRozeLoginTest extends BaseTest {
         homePage.navigateToLoginPage();
         homePage.clickLogoButton();
 
-        Assert.assertTrue(driver.findElement(By.id("slideshow-8f83ff4d8eadb852cdc53a308a8ecf00")).isDisplayed(),
-                "The logo button brings back to the main page");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.assertMainPageLogoDisplayed();
     }
 
     @Test(priority = 4)
@@ -48,7 +48,7 @@ public class JanisRozeLoginTest extends BaseTest {
         homePage.navigateToLoginPage();
         homePage.clickFacebookLink();
 
-        Assert.assertTrue(driver.findElement(By.xpath("//i[@class='fb_logo img sp_EP9wX8qDDvu sx_d5b062']")).isDisplayed(),
-                "The Facebook link works");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.assertFacebookLinkIconDisplayed();
     }
 }
